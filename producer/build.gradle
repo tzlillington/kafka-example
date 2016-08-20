@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "ProducerApplication"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'io.dropwizard:dropwizard-core:1.0.0'
+    compile 'org.apache.kafka:kafka-clients:0.10.0.1'
+}
+
+distZip.enabled = false
+distTar.enabled = false
+startScripts.enabled = false
+
+run {
+    args 'server', './config.yml'
+}
